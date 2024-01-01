@@ -27,6 +27,7 @@ const login = async (req, res) => {
     if (!decryptedPassword) {
       return res.status(401).json({ message: "Invalid Credentials" });
     }
+    console.log(`decpt pass ${decryptedPassword}`);
 
     //assign token
     const token = jwt.sign({ customerId: customer._id }, SECRET_KEY);
@@ -41,7 +42,6 @@ const login = async (req, res) => {
         favouriteDish: customer.favouriteDish,
       },
     };
-
     console.log(`resonse data is ${responseData}`);
     res.status(200).json(responseData);
   } catch (error) {

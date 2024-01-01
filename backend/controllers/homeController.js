@@ -1,5 +1,5 @@
 const home = (req, res) => {
-  const { favouriteDish } = req.body;
-  res.status(200).json({ message: favouriteDish });
+  const favoriteDish = req.customer.favoriteDish;
+  res.status(200).json({ message: "Home page", favoriteDish });
 };
 module.exports = home;
