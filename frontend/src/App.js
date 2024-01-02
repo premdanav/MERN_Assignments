@@ -5,15 +5,17 @@ import Login from "./components/Login.jsx";
 import Home from "./components/Home.jsx";
 import Logout from "./components/Logout.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
+import Navbar from "./components/Navbar.jsx";
 import { useSelector } from "react-redux";
 
 const App = () => {
   //check authentication from redux
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  console.log(`from app js is auth ${isAuthenticated}`);
+  //console.log(`from app js is auth ${isAuthenticated}`);
   return (
     <div>
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Navigate to="/register" />} />
           <Route
@@ -24,6 +26,7 @@ const App = () => {
             path="/login"
             element={isAuthenticated ? <Navigate to="/home" /> : <Login />}
           />
+          {/*private route */}
           <Route element={<PrivateRoute />}>
             <Route path="/home" element={<Home />} />
           </Route>

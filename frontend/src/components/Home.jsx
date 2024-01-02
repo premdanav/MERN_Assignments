@@ -42,7 +42,7 @@ const Home = () => {
             Welcome! This is your home page.
           </Typography>
           <Typography variant="body2" color="textSecondary">
-            Your favorite dish: {"logic incomplete"}
+            Your favorite dish: {"this logic is pending"}
           </Typography>
           <Button
             variant="contained"
